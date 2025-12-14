@@ -16,19 +16,19 @@ import java.net.URL;
 import java.time.Duration;
 
 public class GridStepDefs {
-
     WebDriver driver;
 
     @Given("kullanici {string} adresine {string} ile gider")
     public void kullanici_adresine_ile_gider(String url, String browser) throws URISyntaxException, MalformedURLException {
 
-        // Jenkins ile çalışmak için localhost
-        URL remoteUrl = new URL("http://localhost:4444");
+        URL remoteUrl = new URL("http://192.168.2.103:4444");
 
-        if (browser.equalsIgnoreCase("chrome")){
+        if (browser.equalsIgnoreCase("chrome")) {
             driver = new RemoteWebDriver(remoteUrl, new ChromeOptions());
+
         } else if (browser.equalsIgnoreCase("firefox")) {
             driver = new RemoteWebDriver(remoteUrl, new FirefoxOptions());
+
         } else if (browser.equalsIgnoreCase("edge")) {
             driver = new RemoteWebDriver(remoteUrl, new EdgeOptions());
         }
@@ -47,5 +47,6 @@ public class GridStepDefs {
     @Then("kullanici sayfayi kapatir")
     public void kullanici_sayfayi_kapatir() {
         driver.quit();
+
     }
 }
