@@ -22,6 +22,8 @@ public class GridStepDefs {
     public void kullanici_adresine_ile_gider(String url, String browser) throws URISyntaxException, MalformedURLException {
 
         URL remoteUrl = new URL("http://192.168.2.103:4444");
+       // URL remoteUrl = new URL("http://192.168.1.169:4444/wd/hub"); fransadan baglaninca bu lazim oldu :)
+
 
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new RemoteWebDriver(remoteUrl, new ChromeOptions());
